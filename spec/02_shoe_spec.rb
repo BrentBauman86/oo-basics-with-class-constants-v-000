@@ -6,8 +6,13 @@ describe 'Shoe' do
     it 'keeps track of all brands' do
       brands = ["Uggs", "Rainbow"]
       brands.each do |brand|
+<<<<<<< HEAD
         Shoe.new(brand)
 
+=======
+        shoe = Shoe.new("#{brand}")
+        shoe.brand = brand
+>>>>>>> 35011d8a357d7cdca26895e2ead9ec531f369eb8
       end
 
       brands.each do |brand|
@@ -17,9 +22,10 @@ describe 'Shoe' do
 
     it 'only keeps track of unique brands' do
       Shoe::BRANDS.clear
-      brands = ["Uggs", "Rainbow", "Nike", "Nike"]
+      brands = ["Uggs", "Rainbow", "Nike"]
       brands.each do |brand|
-        Shoe.new(brand)
+        shoe = Shoe.new("#{brand}")
+        shoe.brand = brand
       end
 
       expect(Shoe::BRANDS.size).to eq(3)
